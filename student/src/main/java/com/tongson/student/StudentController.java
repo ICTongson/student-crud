@@ -9,6 +9,7 @@ import java.net.URISyntaxException;
 import java.util.Optional;
 
 @Controller
+@CrossOrigin(origins = "*")
 @RequestMapping(path="/tongson/students")
 public class StudentController {
 
