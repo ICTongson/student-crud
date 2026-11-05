@@ -214,20 +214,33 @@ export default function App() {
 
       <main className="main-container">
         {error && (
-          <div className="connection-alert alert-error" style={{ marginBottom: '20px' }}>
+          <div className="connection-alert alert-error" style={{ marginBottom: '20px', display: 'flex', alignItems: 'center', gap: '12px' }}>
             <AlertCircle size={20} />
             <div style={{ flex: 1 }}>
               <strong>API Connectivity Notice:</strong> {error}
+              <div style={{ fontSize: '0.8rem', color: '#7f1d1d', marginTop: '4px' }}>
+                💡 <em>Tip: Render free tier spins down after inactivity (takes ~50s to wake up). If your backend URL has a unique suffix (e.g. <code>student-backend-xxxx.onrender.com</code>), click "API Settings" below to update it.</em>
+              </div>
             </div>
-            <button
-              type="button"
-              className="btn btn-secondary icon-btn"
-              onClick={() => fetchStudents()}
-              style={{ fontSize: '0.8rem', padding: '4px 10px' }}
-            >
-              <RefreshCw size={14} />
-              <span>Retry</span>
-            </button>
+            <div style={{ display: 'flex', gap: '8px' }}>
+              <button
+                type="button"
+                className="btn btn-secondary icon-btn"
+                onClick={() => setSettingsOpen(true)}
+                style={{ fontSize: '0.8rem', padding: '6px 12px' }}
+              >
+                API Settings
+              </button>
+              <button
+                type="button"
+                className="btn btn-secondary icon-btn"
+                onClick={() => fetchStudents()}
+                style={{ fontSize: '0.8rem', padding: '6px 12px' }}
+              >
+                <RefreshCw size={14} />
+                <span>Retry</span>
+              </button>
+            </div>
           </div>
         )}
 
